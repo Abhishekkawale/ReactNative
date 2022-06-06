@@ -1,0 +1,38 @@
+import * as React from 'react';
+import { Searchbar } from 'react-native-paper';
+
+const MyComponent = () => {
+  const [searchQuery, setSearchQuery] = React.useState('');
+
+  const onChangeSearch = query => setSearchQuery(query);
+
+  return (
+    <Searchbar
+      placeholder="Search"
+      onChangeText={onChangeSearch}
+      value={searchQuery}
+    />
+  );
+};import { Text, ListView, StyleSheet } from 'react-native'  
+  
+export default class MyListComponent extends Component {  
+    constructor() {  
+        super();  
+        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});  
+        this.state = {  
+            dataSource: ds.cloneWithRows(['Milk', 'Coffee', 'Oranges', 'Bread']),  
+        };  
+    }  
+  
+    render() {  
+        return (  
+            <ListView  
+                dataSource={this.state.dataSource}  
+                renderRow={  
+                    (rowData) =>  
+                        <Text style={{fontSize: 20}}>{rowData}</Text>}  
+            />  
+        );  
+    }  
+} 
+export default MyComponent;
